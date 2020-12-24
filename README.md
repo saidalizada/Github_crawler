@@ -1,8 +1,7 @@
 # Github_crawler
 Github_crawler is a crawler for Github search <br />
 
-Input values are hardcoded in json file in the src/config folder. There are 4 different json file 3 of them for 3 different type and one for unicode keyword.<br />
-
+Input values are hardcoded in json file in the [src/config](../tree/main/src/config) folder. There are 4 different json file 3 of them for 3 different type and one for unicode keyword.<br />
 ## Installation
 
 Main libraries used for crawler
@@ -35,3 +34,7 @@ python3 github_crawler.py -w
 ```bash
 python3 github_crawler.py -u
 ```
+
+## Output
+
+### You can see [output.json](../blob/main/src/config/output.json) After running these commands whatever you want to try above.
