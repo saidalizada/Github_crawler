@@ -37,4 +37,4 @@ python3 github_crawler.py -u
 
 ## Output
 
-### You can see [output.json](/blob/main/src/config/output.json) After running these commands whatever you want to try above.
+### You can see [output.json](/src/config/output.json) After running these commands whatever you want to try above.
