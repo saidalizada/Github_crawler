@@ -10,15 +10,15 @@ if __name__ == "__main__":
         input_value = '-r'
 
     if input_value == '-i':
-        _input = load_json('src\config\input_issues.json')
+        _input = load_json('src/config/input_issues.json')
     elif input_value == '-r':
-        _input = load_json('src\config\input_repositories.json')
+        _input = load_json('src/config/input_repositories.json')
     elif input_value == '-w':
-        _input = load_json('src\config\input_wiki.json')
+        _input = load_json('src/config/input_wiki.json')
     elif input_value == '-u':
-        _input = load_json('src\config\input_unicode.json')
+        _input = load_json('src/config/input_unicode.json')
     else:
-        _input = load_json('src\config\input_repositories.json')
+        _input = load_json('src/config/input_repositories.json')
         
     keywords = _input['keywords']
     proxies = _input['proxies']
