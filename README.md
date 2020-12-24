@@ -1,7 +1,7 @@
 # Github_crawler
 Github_crawler is a crawler for Github search <br />
 
-Input values are hardcoded in json file in the [../src/config](tree/main/src/config) folder. There are 4 different json file 3 of them for 3 different type and one for unicode keyword.<br />
+Input values are hardcoded in json file in the [/src/config](../src/config) folder. There are 4 different json file 3 of them for 3 different type and one for unicode keyword.<br />
 ## Installation
 
 Main libraries used for crawler
