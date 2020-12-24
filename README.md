@@ -30,7 +30,7 @@ python3 github_crawler.py -i
 python3 github_crawler.py -w
 ```
 
-### for unicode Keywords ('Россия') with type repositories
+### for unicode Keywords (added 'Россия' to the keywords) with type repositories
 ```bash
 python3 github_crawler.py -u
 ```
