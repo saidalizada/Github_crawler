@@ -1,13 +1,13 @@
+from random import randint
 import requests
 import bs4
-from random import randint
 
 class Github:
 
-    def __init__(self, keywords, proxies, type):
+    def __init__(self, keywords, proxies, type_of_object):
         self.keywords = keywords
-        self.type = type
-        random_n = randint(0,len(proxies)-1)
+        self.type_of_object = type_of_object
+        random_n = randint(0, len(proxies)-1)
         proxy = proxies[random_n]
         self.proxy = proxy
         self._root_url = 'https://github.com'
@@ -15,11 +15,11 @@ class Github:
     def get_githup_search_url(self):
         _root_url = self._root_url
         keywords = self.keywords
-        type = self.type
+        type_of_object = self.type_of_object
         query = "+".join(keywords)
-        url = f'{_root_url}/search?q={query}&type={type}'
+        url = f'{_root_url}/search?q={query}&type={type_of_object}'
         return url
-    
+
     def soup(self, url):
         proxy = self.proxy
         proxy_dict = {"http": f"http://{proxy}",}
@@ -31,6 +31,7 @@ class Github:
         language_stats_list = []
         soup = self.soup(url)
         owner = soup.find('span', attrs={"class": "author"}).text
+        owner = owner.replace('\n', '')
         languages = soup.find_all(name='div', attrs={"class": "BorderGrid-cell"})[-1].find_all('li')
         for language in languages:
             language_info = language.find_all('span')
@@ -41,24 +42,24 @@ class Github:
         return owner, language_stats
 
     def compute(self):
-        l = []
-        _root_url = self._root_url
-        type = self.type
-        githup_url = self.get_githup_search_url()
-        githup_search = self.soup(githup_url)
-        url_list = githup_search.find_all(name="div", attrs={"class": "f4"})
-        for url in url_list:
-            get_url = url.find('a').get('href')
-            _url = _root_url + get_url
-            if type == 'repositories':
-                owner, language_stats = self.get_extra_info_repo(_url)
-                url_dict =  {"url": _url, "extra": {"owner": owner,\
-                    "language_stats":language_stats}}
-                l.append(url_dict)   
-            else:
-                url_dict = {"url": _url}
-                l.append(url_dict)
-            
-        print(l)
-        return l
-    
+        try:
+            output_list = []
+            _root_url = self._root_url
+            type_of_object = self.type_of_object
+            githup_url = self.get_githup_search_url()
+            githup_search = self.soup(githup_url)
+            url_list = githup_search.find_all(name="div", attrs={"class": "f4"})
+            for url in url_list:
+                get_url = url.find('a').get('href')
+                _url = _root_url + get_url
+                if type_of_object == 'repositories':
+                    owner, language_stats = self.get_extra_info_repo(_url)
+                    url_dict = {"url": _url, "extra": {"owner": owner,\
+                        "language_stats":language_stats}}
+                else:
+                    url_dict = {"url": _url}
+                output_list.append(url_dict)
+
+            return output_list
+        except Exception as err:
+            print(err)
