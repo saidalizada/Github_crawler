@@ -5,7 +5,7 @@ Input values are hardcoded in json file in the src/config folder. There are 4 di
 
 ## Usage
 
-Main libriries used for crawler
+Main libraries used for crawler
 ```bash
 pip install bs4
 pip install requests
