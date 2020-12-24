@@ -38,3 +38,9 @@ python3 github_crawler.py -u
 ## Output
 
 ### You can see [`output.json`](/src/config/output.json) After running these commands whatever you want to try above.
+
+
+### Used Technologies
+- *Operating System:* Windows 10 
+- *Code Editor:* Visual Studio Code Version 1.52.1
+- *Programming Language:* Python 3.6.6
