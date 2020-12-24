@@ -41,6 +41,6 @@ python3 github_crawler.py -u
 
 
 ## Used Technologies
-- *Operating System:* Windows 10 
-- *Code Editor:* Visual Studio Code Version 1.52.1
-- *Programming Language:* Python 3.6.6
+- **Operating System:** Windows 10 
+- **Code Editor:** Visual Studio Code Version 1.52.1
+- **Programming Language:** Python 3.6.6
