@@ -3,33 +3,35 @@ Github_crawler is a crawler for Github search <br />
 
 Input values are hardcoded in json file in the src/config folder. There are 4 different json file 3 of them for 3 different type and one for unicode keyword.<br />
 
-## Usage
+## Installation
 
 Main libraries used for crawler
 ```bash
-pip3 install bs4
-pip3 install requests
-pip3 install lxml
-```
-to run the code for type repositories
-
-```bash
-python github_crawler.py
+pip3 install -r requirements.txt
 ```
 
-to run the code for type issues
+## Usage
+
+If you want to run the code;
+### for type repositories
 
 ```bash
-python github_crawler.py -i
+python3 github_crawler.py
 ```
 
-to run the code for type wiki
+### for type issues
 
 ```bash
-python github_crawler.py -w
+python3 github_crawler.py -i
 ```
 
-to run the code for unicode Keywords ('Россия') with type repositories
+### for type wiki
+
 ```bash
-python github_crawler.py -u
+python3 github_crawler.py -w
+```
+
+### for unicode Keywords ('Россия') with type repositories
+```bash
+python3 github_crawler.py -u
 ```

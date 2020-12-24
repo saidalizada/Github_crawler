@@ -1,6 +1,7 @@
 """Github Crawler"""
 from src.github_search import Github
 from src.utils.load_json import load_json
+from src.utils.write_json import write_json
 import sys
 
 if __name__ == "__main__":
@@ -25,4 +26,5 @@ if __name__ == "__main__":
     type_of_object = _input['type']
     github = Github(keywords, proxies, type_of_object)
     result = github.compute()
+    write_json(result)
     print(result)
