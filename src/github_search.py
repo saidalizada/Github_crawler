@@ -32,13 +32,18 @@ class Github:
         soup = self.soup(url)
         owner = soup.find('span', attrs={"class": "author"}).text
         owner = owner.replace('\n', '')
-        languages = soup.find_all(name='div', attrs={"class": "BorderGrid-cell"})[-1].find_all('li')
-        for language in languages:
-            language_info = language.find_all('span')
-            language_name = language_info[0].text
-            language_percentage = language_info[1].text
-            language_stats_list.append((language_name, language_percentage))
-        language_stats = dict(language_stats_list)
+        languages_box = soup.find_all(name='div', attrs={"class": "BorderGrid-cell"})[-1]
+        languages_box_header = languages_box.find('h2').text
+        if languages_box_header == 'Languages':
+            languages = languages_box.find_all('li')
+            for language in languages:
+                language_info = language.find_all('span')
+                language_name = language_info[0].text
+                language_percentage = language_info[1].text
+                language_stats_list.append((language_name, language_percentage))
+            language_stats = dict(language_stats_list)
+        else:
+            language_stats = ""
         return owner, language_stats
 
     def compute(self):
