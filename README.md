@@ -3,7 +3,8 @@ Github_crawler is a crawler for Github search
 
 ## Usage
 Input values are hardcoded in json file in the src/config folder
-Main libriries used for crawler
+
+### Main libriries used for crawler
 ```bash
 pip install bs4
 pip install requests
