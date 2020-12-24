@@ -38,8 +38,8 @@ class Github:
             languages = languages_box.find_all('li')
             for language in languages:
                 language_info = language.find_all('span')
-                language_name = language_info[0].text
-                language_percentage = language_info[1].text
+                language_name = language_info[-2].text
+                language_percentage = language_info[-1].text
                 language_stats_list.append((language_name, language_percentage))
             language_stats = dict(language_stats_list)
         else:
