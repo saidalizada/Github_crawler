@@ -1,10 +1,12 @@
 """Github Crawler"""
-from github_search import Github
+from src.github_search import Github
+from src.utils.load_json import load_json
 
 if __name__ == "__main__":
-    keywords = ['test', 'python']
-    proxies = ['182.16.255.194:43419', '182.16.255.194:43419']
-    type_of_object = 'repositories'
+    _input = load_json('src\config\input.json')
+    keywords = _input['keywords']
+    proxies = _input['proxies']
+    type_of_object = _input['type']
     github = Github(keywords, proxies, type_of_object)
     result = github.compute()
     print(result)

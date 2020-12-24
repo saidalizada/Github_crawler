@@ -1,4 +1,4 @@
-from github_search import Github
+from src.github_search import Github
 import unittest
 from random import randint
 
@@ -46,6 +46,8 @@ class TestMethods(unittest.TestCase):
         github = Github(keywords, proxies, type_of_object)
         result = github.get_extra_info_repo(url)
         self.assertEqual(result[0], 'geekcomputers')
+
+    
 
 if __name__ == '__main__':
     unittest.main()
