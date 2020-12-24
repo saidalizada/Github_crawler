@@ -7,8 +7,8 @@ Input values are hardcoded in json file in the src/config folder. There are 4 di
 
 Main libraries used for crawler
 ```bash
-pip install bs4
-pip install requests
+pip3 install bs4
+pip3 install requests
 ```
 to run the code for type repositories
 
