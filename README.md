@@ -1,10 +1,11 @@
 # Github_crawler
-Github_crawler is a crawler for Github search
+Github_crawler is a crawler for Github search <br />
+
+Input values are hardcoded in json file in the src/config folder. There are 4 different json file 3 of them for 3 different type and one for unicode keyword.<br />
 
 ## Usage
-Input values are hardcoded in json file in the src/config folder
 
-### Main libriries used for crawler
+Main libriries used for crawler
 ```bash
 pip install bs4
 pip install requests
@@ -27,7 +28,7 @@ to run the code for type wiki
 python github_crawler.py -w
 ```
 
-to run the code for unicode Keywords 'Россия' with type repositories
+to run the code for unicode Keywords ('Россия') with type repositories
 ```bash
 python github_crawler.py -u
 ```
