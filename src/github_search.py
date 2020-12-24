@@ -67,4 +67,4 @@ class Github:
 
             return output_list
         except Exception as err:
-            print(err)
+            print({"status": "Error"})
