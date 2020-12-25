@@ -1,30 +1,30 @@
 """Github Crawler"""
+import sys
 from src.github_search import Github
 from src.utils.load_json import load_json
 from src.utils.write_json import write_json
-import sys
 
 if __name__ == "__main__":
     try:
-        input_value = sys.argv[1]
-    except:
-        input_value = '-r'
+        INPUT_VALUE = sys.argv[1]
+    except Exception:
+        INPUT_VALUE = '-r'
 
-    if input_value == '-i':
-        _input = load_json('src/config/input_issues.json')
-    elif input_value == '-r':
-        _input = load_json('src/config/input_repositories.json')
-    elif input_value == '-w':
-        _input = load_json('src/config/input_wiki.json')
-    elif input_value == '-u':
-        _input = load_json('src/config/input_unicode.json')
+    if INPUT_VALUE == '-i':
+        INPUT = load_json('src/config/input_issues.json')
+    elif INPUT_VALUE == '-r':
+        INPUT = load_json('src/config/input_repositories.json')
+    elif INPUT_VALUE == '-w':
+        INPUT = load_json('src/config/input_wiki.json')
+    elif INPUT_VALUE == '-u':
+        INPUT = load_json('src/config/input_unicode.json')
     else:
-        _input = load_json('src/config/input_repositories.json')
-        
-    keywords = _input['keywords']
-    proxies = _input['proxies']
-    type_of_object = _input['type']
-    github = Github(keywords, proxies, type_of_object)
-    result = github.compute()
-    write_json(result)
-    print(result)
+        INPUT = load_json('src/config/input_repositories.json')
+
+    KEYWORDS = INPUT['keywords']
+    PROXIES = INPUT['proxies']
+    TYPE_OF_OBJECT = INPUT['type']
+    GITHUB = Github(KEYWORDS, PROXIES, TYPE_OF_OBJECT)
+    RESULT = GITHUB.compute()
+    write_json(RESULT)
+    print(RESULT)

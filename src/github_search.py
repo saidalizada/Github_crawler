@@ -1,3 +1,4 @@
+""" Github class to compute search result of the crawler"""
 from random import randint
 import requests
 import bs4
@@ -13,21 +14,25 @@ class Github:
         self._root_url = 'https://github.com'
 
     def get_githup_search_url(self):
+        """ Get url of the search result """
         _root_url = self._root_url
         keywords = self.keywords
         type_of_object = self.type_of_object
         query = "+".join(keywords)
-        url = f'{_root_url}/search?q={query}&type={type_of_object}'
-        return url
+        search_url = f'{_root_url}/search?q={query}&type={type_of_object}'
+        return search_url
 
     def soup(self, url):
+        """ Making the Soup"""
         proxy = self.proxy
         proxy_dict = {"http": f"http://{proxy}",}
-        r = requests.get(url, proxies=proxy_dict)
-        soup = bs4.BeautifulSoup(r.text, 'lxml')
+        _requests = requests.get(url, proxies=proxy_dict)
+        soup = bs4.BeautifulSoup(_requests.text, 'lxml')
         return soup
 
     def get_extra_info_repo(self, url):
+        """ Getting owner and languages information(if exist).
+            It is for optional task"""
         language_stats_list = []
         soup = self.soup(url)
         owner = soup.find('span', attrs={"class": "author"}).text
@@ -47,6 +52,8 @@ class Github:
         return owner, language_stats
 
     def compute(self):
+        """ Return urls of the search result. If type is repository
+            Return also owner and languages information"""
         try:
             output_list = []
             _root_url = self._root_url
@@ -66,5 +73,5 @@ class Github:
                 output_list.append(url_dict)
 
             return output_list
-        except Exception as err:
-            print({"status": "Error"})
+        except Exception as error:
+            print({"status": "Error", "feedbaxk": str(error)})
